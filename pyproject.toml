@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentic-data-scientist"
+dynamic = ["version"]
+description = "A collaborative multi-agent data science and AI business intelligence platform with human-in-the-loop workflows."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+# Phase 1 runtime only. Lower bounds mark the oldest major/minor lines whose
+# APIs we rely on (Streamlit bordered containers; python-dotenv 1.x).
+dependencies = [
+    "streamlit>=1.30",
+    "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+# Planned for later phases. Not installed by `requirements.txt`.
+data = ["pandas>=2.2", "numpy", "pyarrow", "openpyxl", "duckdb", "plotly"]
+db = ["sqlalchemy>=2.0", "psycopg[binary]>=3.1"]
+agents = ["langgraph>=1.0", "langchain-core>=1.0"]
+ml = ["scikit-learn", "xgboost", "catboost", "mlflow"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.setuptools.dynamic]
+# Single source of truth for the version: agentic_data_scientist/__init__.py
+version = { attr = "agentic_data_scientist.__version__" }

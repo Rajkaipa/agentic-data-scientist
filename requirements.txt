@@ -1,0 +1,9 @@
+# Phase 1 install: the project itself (editable) plus test tooling.
+# Runtime dependencies are declared once, in pyproject.toml.
+#
+# Optional groups for later phases (install only when a milestone needs them):
+#   pip install -e ".[data]"     pandas, numpy, pyarrow, openpyxl, duckdb, plotly
+#   pip install -e ".[db]"       sqlalchemy, psycopg
+#   pip install -e ".[agents]"   langgraph, langchain-core
+#   pip install -e ".[ml]"       scikit-learn, xgboost, catboost, mlflow
+-e .[dev]

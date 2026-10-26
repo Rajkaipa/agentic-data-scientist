@@ -1,0 +1,66 @@
+# Virtual environments (directory rules are anchored to the repo root with a
+# leading "/" so they never hide a nested source package of the same name)
+.venv/
+/venv/
+/env/
+
+# Python caches and build output
+__pycache__/
+*.py[cod]
+*.egg-info/
+/build/
+/dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Test coverage
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+
+# Secrets and credentials (keep .env.example)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+service-account*.json
+.pgpass
+pgpass.conf
+.streamlit/secrets.toml
+
+# Claude Code local (personal) settings; shared settings may be committed
+.claude/settings.local.json
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Logs
+*.log
+/logs/
+
+# Generated data (keep the placeholder)
+data/*
+!data/.gitkeep
+
+# ML artifacts
+mlruns/
+mlartifacts/
+/artifacts/
+/models/
+*.pkl
+*.pickle
+*.joblib
+*.onnx
+catboost_info/
+
+# Editors and OS
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.idea/
+Thumbs.db
+.DS_Store
